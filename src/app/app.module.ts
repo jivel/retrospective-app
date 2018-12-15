@@ -3,10 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StartStopContinueComponent } from './start-stop-continue/start-stop-continue.component';
+import { GladSadMadComponent } from './glad-sad-mad/glad-sad-mad.component';
+import { SailboatComponent } from './sailboat/sailboat.component';
+import { TheFourLsComponent } from './the-four-ls/the-four-ls.component';
+import { QuickRetrospectiveComponent } from './quick-retrospective/quick-retrospective.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StartStopContinueComponent,
+    GladSadMadComponent,
+    SailboatComponent,
+    TheFourLsComponent,
+    QuickRetrospectiveComponent
   ],
   imports: [
     BrowserModule,
