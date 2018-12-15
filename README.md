@@ -1,4 +1,4 @@
-#Realtimeboard whiteboard for Sprint retrospective 
+## Realtimeboard whiteboard for Sprint retrospective 
 
 A sprint retrospective is a great way for your team to reflect on the previous sprint, the work that was done, the goals achieved, and generate ideas for improvement. The trick is to change up the format every once in a while – retros quickly become stale if you sleepwalk your way through the same agenda every time.
 In this app, you’ll get five simple sprint retrospective ideas, the rise of the remote worker means that more retrospectives are happening in the digital realm as well. Collaborate on your online whiteboard using sticky notes and whiteboarding toolkit just like in front of your office whiteboard.
