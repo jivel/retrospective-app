@@ -1,0 +1,21 @@
+.retrospective-register-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.retrospective-register-container > * {
+  width: 100%;
+}
+
+.retrospective-template-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.retrospective-template-button {
+  margin: 5px;
+}
+
+.retrospective-template-value {
+  margin: 15px 0;
+}
