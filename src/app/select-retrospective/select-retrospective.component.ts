@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Template } from '../domain/template';
 import { TemplateService } from '../service/template.service';
 import { SprintRetrospectiveTemplate } from '../domain/enum/sprint-retrospective-template';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-retrospective',
@@ -15,6 +16,7 @@ export class SelectRetrospectiveComponent implements OnInit {
   templates: Template[];
 
   constructor(
+    private router: Router,
     private _formBuilder: FormBuilder,
     private templateService: TemplateService) {
     this.templates = this.templateService.getAll();
@@ -31,9 +33,11 @@ export class SelectRetrospectiveComponent implements OnInit {
   }
 
   onCreate() {
-    var sprintRetrospectiveTemplateValue: number = this.selectTemplateFormGroup.get('selectTemplateFormControlName').value;
+    let sprintRetrospectiveTemplateValue: number = this.selectTemplateFormGroup.get('selectTemplateFormControlName').value;
     console.log("Selected Template", SprintRetrospectiveTemplate.getURI(sprintRetrospectiveTemplateValue));
     console.log("Team", this.teamInformationFormGroup.get('teamNameTeamInformationFormControlName').value);
     console.log("Sprint", this.teamInformationFormGroup.get('sprintTeamInformationFormControlName').value);
+    let retrospectiveId: number = 1234;
+    this.router.navigate([SprintRetrospectiveTemplate.getURI(sprintRetrospectiveTemplateValue), retrospectiveId]);
   }
 }
