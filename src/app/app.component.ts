@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Realtimeboard whiteboard for Sprint retrospective ';
+  title = 'Sprint retrospective';
 }
