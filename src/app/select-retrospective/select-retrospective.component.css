@@ -1,0 +1,9 @@
+.select-template,
+.radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.radio-button {
+    margin: 1em;
+}
