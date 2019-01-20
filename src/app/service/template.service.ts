@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Template } from '../domain/template';
+import { SprintRetrospectiveTemplate } from '../domain/enum/sprint-retrospective-template';
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +11,20 @@ export class TemplateService {
 
   getAll(): Template[] {
     return [{
-      id: 1,
+      id: SprintRetrospectiveTemplate.START_STOP_CONTINUE,
       title: "Start, Stop, Continue",
       description: ""
     }, {
-      id: 2,
+      id: SprintRetrospectiveTemplate.GLAD_SAD_MAD,
       title: "Glad, Sad, Mad"
     }, {
-      id: 3,
+      id: SprintRetrospectiveTemplate.SAILBOAT,
       title: "Sailboat"
     }, {
-      id: 4,
+      id: SprintRetrospectiveTemplate.THE_4_LS,
       title: "The 4 L’s"
     }, {
-      id: 5,
+      id: SprintRetrospectiveTemplate.QUICK_RETROSPECTIVE,
       title: "Quick Retrospective"
     }];
   }

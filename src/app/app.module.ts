@@ -9,9 +9,10 @@ import { SailboatComponent } from './sailboat/sailboat.component';
 import { TheFourLsComponent } from './the-four-ls/the-four-ls.component';
 import { QuickRetrospectiveComponent } from './quick-retrospective/quick-retrospective.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatToolbarModule, MatTabsModule, MatFormFieldModule, MatStepperModule, MatInputModule, MatRadioModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatToolbarModule, MatTabsModule, MatFormFieldModule, MatStepperModule, MatInputModule, MatRadioModule, MatButtonModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectRetrospectiveComponent } from './select-retrospective/select-retrospective.component';
+import { MAT_STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 
 @NgModule({
@@ -32,14 +33,22 @@ import { SelectRetrospectiveComponent } from './select-retrospective/select-retr
     ReactiveFormsModule,
     MatStepperModule,
     MatToolbarModule,
-    MatCardModule, 
-    BrowserAnimationsModule, 
-    MatTabsModule, 
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
     MatFormFieldModule,
     MatRadioModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [{
+    provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher
+  }, {
+    provide: MAT_STEPPER_GLOBAL_OPTIONS,
+    useValue: {
+      displayDefaultIndicatorType: true,
+      showError: true
+    }
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

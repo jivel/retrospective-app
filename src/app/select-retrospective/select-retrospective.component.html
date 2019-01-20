@@ -1,39 +1,32 @@
-<mat-vertical-stepper [linear]="isLinear" #stepper>
+<mat-vertical-stepper #stepper>
   <mat-step [stepControl]="selectTemplateFormGroup">
     <form [formGroup]="selectTemplateFormGroup">
       <ng-template matStepLabel>Select your favorite template</ng-template>
 
-      <mat-radio-group class="radio-group" [(ngModel)]="selectedTemplateId" formControlName="selectTemplateFormControlName"
+      <mat-radio-group class="radio-group" formControlName="selectTemplateFormControlName"
         required>
         <mat-radio-button class="radio-button" *ngFor="let template of templates" [value]="template.id">
           {{template.title}}
         </mat-radio-button>
       </mat-radio-group>
       <div>
-        <button mat-button matStepperNext mat-stroked-button color="primary">Next</button>
+        <button mat-button matStepperNext mat-stroked-button color="primary" [disabled]="!selectTemplateFormGroup.valid">Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="teamInformationFormGroup">
+  <mat-step [stepControl]="teamInformationFormGroup" [optional]="false">
     <form [formGroup]="teamInformationFormGroup" class="select-template">
       <ng-template matStepLabel>Fill out your team information</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Team" [(ngModel)]="teamName" formControlName="teamInformationFormControlName" required>
+        <input matInput placeholder="Team" formControlName="teamNameTeamInformationFormControlName" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Sprint" [(ngModel)]="sprint" formControlName="teamInformationFormControlName" required>
+        <input matInput placeholder="Sprint" formControlName="sprintTeamInformationFormControlName" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious mat-stroked-button color="primary">Back</button>
-        <button mat-button matStepperNext mat-stroked-button color="primary">Next</button>
+        <button mat-button mat-stroked-button color="primary" (click)="onCreate()" [disabled]="!teamInformationFormGroup.valid">Create</button>
       </div>
     </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Share with your team</ng-template>
-    <div>
-      <button mat-button matStepperPrevious mat-stroked-button color="primary">Back</button>
-      <button mat-button mat-stroked-button color="primary" (click)="onShare()">Share</button>
-    </div>
   </mat-step>
 </mat-vertical-stepper>
